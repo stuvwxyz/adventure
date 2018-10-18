@@ -75,8 +75,24 @@ func CreateLocations(db *sql.DB) {
 		"The woods thicken to the point where you can hardly continue.  There are fallen trees in the little path that had existed",
 		"Curve", "", "", "", "Fallen Trees", "")
 	database.LocationAdd(db, "Fallen Trees",
-		"You climb the trees and peer over.  There is no path leading forward.  They only way is to climb down and go back the way you came.",
-		"", "", "", "", "", "Heavy Woods")
+		"You climb the trees and peer over.  It appears you can go East into the DARK, DARK woods.",
+		"", "", "DARK, DARK Woods", "", "", "Heavy Woods")
+	database.LocationAdd(db, "DARK, DARK Woods",
+		"You enter a DARK, DARK woods.  A DARK, DARK path continues east",
+		"", "", "DARK, DARK path", "Fallen Trees", "", "")
+	database.LocationAdd(db, "DARK, DARK path",
+		"You walk down a DARK, DARK path.  There is a light glow to the east",
+		"", "", "Towards the brightly lit hut", "DARK, DARK Woods", "", "")
+	database.LocationAdd(db, "Towards the brightly lit hut",
+		"You follow the DARK, DARK path to a brightly lit hut.  There is a hill to the south",
+		"The Hut", "Towards the hill", "", "DARK, DARK path", "", "")
+	database.LocationAdd(db, "The Hut",
+		"You enter the hut.  There is a someone throwing ingredients into a cauldron and chanting quietly. \n She says, 'Enter and close the door, Dinner is just about ready'",
+		"", "Towards the brightly lit hut", "", "", "", "")
+	database.LocationAdd(db, "Towards the hill",
+		"As you move towards the hill you see the full moon come out of the clouds.  \nYou hear a howl in the distance and decide there is no reason to continue into the DARK, DARK woods in the DARK, DARK night.",
+		"Towards the brightly lit hut", "", "", "", "", "")
+
 
 	database.LocationAdd(db, "Path Between Buildings",
 		"You squeeze between the buildings.  There is little light and it feels like something with lots of legs is climbing across your cheek",

@@ -29,7 +29,7 @@ func LocationAdd(db *sql.DB, name string, description string, n string, s string
 		fmt.Println("Location not added")
 		panic(err)
 	}
-	fmt.Println("New record is: ", id)
+	//fmt.Println("New record is: ", id)
 }
 
 func LocationGet(db *sql.DB, name string) Location {
