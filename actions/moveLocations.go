@@ -1,6 +1,7 @@
 package actions
 
 import (
+	"Adventure/character"
 	"Adventure/database"
 	"database/sql"
 	"fmt"
@@ -28,6 +29,7 @@ func DisplayLocation(location database.Location) {
 	if location.D != "" {
 		fmt.Println("D - ", location.D)
 	}
+	fmt.Println("I - Inventory, C - Character Info, L - Look again")
 }
 
 func MoveLocations(db *sql.DB, move string, location database.Location) database.Location {
@@ -51,8 +53,12 @@ func MoveLocations(db *sql.DB, move string, location database.Location) database
 	} else if move == "D" && location.D != "" {
 		fmt.Println("\n\nYou travel Down")
 		NewName = location.D
-	} else {
-		fmt.Println("\n\n\n\nYou cannot travel in that direction, please choose again.")
+	} else if (move == "I") {
+		character.InventoryCharacter()
+	} else if (move == "C") {
+		character.DisplayCharacter()
+	}else {
+		fmt.Println("\n\n\n\nThat choice is invalid, please choose again.")
 	}
 
 	newLocation := database.LocationGet(db, NewName)

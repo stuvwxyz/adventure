@@ -46,7 +46,9 @@ func main() {
 	fmt.Println("Successfully connected to the DB")
 
 	// Ask player for the character information
+	data.CreateCharactersTable(db)
 	character.GenerateCharacter()
+	database.CharacterAdd(db)
 
 	// Initialize the Locations Table
 	data.CreateLocationsTable(db)

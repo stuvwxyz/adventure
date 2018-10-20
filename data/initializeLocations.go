@@ -7,7 +7,7 @@ import (
 )
 
 func CreateLocationsTable(db *sql.DB) {
-	fmt.Println("Building Locations for your adventure")
+	//fmt.Println("Building Locations for your adventure")
 
 	sqlStatement := `CREATE TABLE IF NOT EXISTS locations (
 		id SERIAL PRIMARY KEY,
@@ -25,7 +25,7 @@ func CreateLocationsTable(db *sql.DB) {
 		fmt.Println("Unable to create locations table")
 		panic(err)
 	}
-	fmt.Println("Locations table created")
+	//fmt.Println("Locations table created")
 }
 
 func CreateLocations(db *sql.DB) {

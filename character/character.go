@@ -29,7 +29,7 @@ func GenerateCharacter() {
 	fmt.Print("What shall you be known as?: ")
 	_, _ = fmt.Scan(&Player.Name)
 
-	fmt.Print("How old ist thou?: ")
+	fmt.Print("How old ist ", Player.Name, "?: ")
 	_, _ = fmt.Scan(&Player.Age)
 
 	fmt.Print("Wouldst thou like to play male, female, non-binary?: ")
@@ -43,7 +43,7 @@ func GenerateCharacter() {
 
 	rand.Seed(time.Now().UnixNano())
 
-	Player.HitPoints = randomInt(1, 10)
+	Player.HitPoints = randomInt(2, 10)
 	Player.Strength = (randomInt(1, 6) + randomInt(1,6) + randomInt(1, 6))
 	Player.Dexterity = (randomInt(1, 6) + randomInt(1,6) + randomInt(1, 6))
 	Player.Constitution = (randomInt(1, 6) + randomInt(1,6) + randomInt(1, 6))
@@ -51,12 +51,16 @@ func GenerateCharacter() {
 	Player.Wisdom = (randomInt(1, 6) + randomInt(1,6) + randomInt(1, 6))
 	Player.Charisma = (randomInt(1, 6) + randomInt(1,6) + randomInt(1, 6))
 
-	fmt.Println("Welcome, ", Player.Name)
-	fmt.Println("Age:", Player.Age)
-	fmt.Println("Gender: ", Player.Gender)
+	DisplayCharacter()
+}
+
+func DisplayCharacter() {
+	fmt.Println("\n\n\nHello, ", Player.Name)
+	fmt.Println("You are ", Player.Age, " years old.")
+	fmt.Println("You identify as ", Player.Gender)
 	fmt.Println("Class: ", Player.Class)
 	fmt.Println("You have ", Player.HitPoints, "hit points.")
-	fmt.Println("Your statistics are:")
+	fmt.Println("\nYour statistics are:")
 	fmt.Println("Strength:", Player.Strength )
 	fmt.Println("Dexterity:", Player.Dexterity )
 	fmt.Println("Constitution:", Player.Constitution )
@@ -65,8 +69,26 @@ func GenerateCharacter() {
 	fmt.Println("Charisma:", Player.Charisma )
 }
 
+func InventoryCharacter() {
+	fmt.Println("\n\nYou are currently carring nothing")
+}
+
 func randomInt(min, max int) int {
 	return min + rand.Intn(max-min)
 }
 
-
+//func LocationAdd(db *sql.DB, name string, description string, n string, s string, e string,
+//	w string, u string, d string) {
+//	sqlStatement := `
+//		INSERT INTO locations (name, description, n, s, e, w, u, d)
+//		VALUES ($1, $2, $3, $4 ,$5, $6, $7, $8)
+//		RETURNING id`
+//	id := 0
+//	err := db.QueryRow(sqlStatement, name, description, n, s, e, w, u, d).Scan(&id)
+//	if err != nil {
+//		fmt.Println("Location not added")
+//		panic(err)
+//	}
+//	//fmt.Println("New record is: ", id)
+//}
+//
