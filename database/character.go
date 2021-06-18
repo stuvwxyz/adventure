@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-func CharacterAdd(db *sql.DB) {
+func CharacterSave(db *sql.DB) {
 	sqlStatement := `
 		INSERT INTO characters (name, age, gender, class, race, location, hit_points, strength, dexterity, constitution, intelligence, wisdom, charisma)
 		VALUES ($1, $2, $3, $4 ,$5, $6, $7, $8, $9, $10, $11, $12, $13)

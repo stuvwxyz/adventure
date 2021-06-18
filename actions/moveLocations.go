@@ -29,7 +29,7 @@ func DisplayLocation(location database.Location) {
 	if location.D != "" {
 		fmt.Println("D - ", location.D)
 	}
-	fmt.Println("I - Inventory, C - Character Info, L - Look again")
+	fmt.Println("I - Inventory, C - Character Info, G - Save Game")
 }
 
 func MoveLocations(db *sql.DB, move string, location database.Location) database.Location {
@@ -57,7 +57,9 @@ func MoveLocations(db *sql.DB, move string, location database.Location) database
 		character.InventoryCharacter()
 	} else if (move == "C") {
 		character.DisplayCharacter()
-	}else {
+	} else if (move == "G") {
+		database.CharacterSave(db)
+	} else {
 		fmt.Println("\n\n\n\nThat choice is invalid, please choose again.")
 	}
 

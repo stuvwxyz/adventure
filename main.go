@@ -48,7 +48,7 @@ func main() {
 	// Ask player for the character information
 	data.CreateCharactersTable(db)
 	character.GenerateCharacter()
-	database.CharacterAdd(db)
+	database.CharacterSave(db)
 
 	// Initialize the Locations Table
 	data.CreateLocationsTable(db)
